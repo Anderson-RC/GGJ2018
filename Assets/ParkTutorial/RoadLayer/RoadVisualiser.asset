@@ -15,13 +15,14 @@ MonoBehaviour:
   _classificationKey: 
   _key: road
   Filters: []
-  _defaultStack: {fileID: 0}
+  _defaultStack: {fileID: 11400000, guid: 488529c395c28be41b7a800df0b0a138, type: 2}
   Stacks:
-  - Type: footway,sidewalk,crossing
+  - Type: footway,sidewalk,crossing,road
     Types:
     - footway
     - sidewalk
     - crossing
+    - road
     Stack: {fileID: 11400000, guid: 4217e878066ea544086959667b4a702c, type: 2}
   _enableCoroutines: 0
   _entityPerCoroutine: 20
