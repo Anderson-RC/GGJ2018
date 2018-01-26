@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: RoadLineModifier
   m_EditorClassIdentifier: 
   Active: 1
-  Width: 2
+  Width: 3
