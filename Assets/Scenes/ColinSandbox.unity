@@ -225,7 +225,9 @@ MonoBehaviour:
   playerPrefab: {fileID: 1092554019526814, guid: b14b09239ddd8d844935d11630dc48a9,
     type: 2}
   playerExists: 0
+  objective: {x: 0, y: 0, z: 0}
   tiles: []
+  activePolis: []
 --- !u!1001 &288429598
 Prefab:
   m_ObjectHideFlags: 0
@@ -669,9 +671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfe7b0938447cbbf9507076f54049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Tracked: {fileID: 110210641}
+  m_Tracked: {fileID: 1235558829}
   AgentID: 0
-  m_Size: {x: 600, y: 20, z: 600}
+  m_Size: {x: 2000, y: 2000, z: 2000}
 --- !u!1001 &1400100793
 Prefab:
   m_ObjectHideFlags: 0

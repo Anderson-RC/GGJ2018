@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
     public GameObject policeCarPrefab;
     public GameObject playerPrefab;
     public bool playerExists = false;
+    public Vector3 objective;
 
     public List<GameObject> tiles = new List<GameObject>();
     public List<GameObject> activePolis = new List<GameObject>();
@@ -48,13 +49,25 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    public void CreateObjective(GameObject player)
+    {
+        //find a point on a road at least 300m away from player
+
+       // var target =  (Random.insideUnitCircle * Random.Range(300.0f, 500.0f)).ToVector3xz() + transform.position
+        //set the location on gc, and on the player
+        //create an object to represent objective once we can see it
+    }
+
     public void SpawnPlayerNearBuilding(Transform building)
     {
         //set player existence to true on spawn    
         GameObject tile = building.parent.gameObject;
         Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
-        Instantiate(playerPrefab, closestRoad, Quaternion.identity);
+        GameObject player = (Instantiate(playerPrefab, closestRoad, Quaternion.identity));
+        player.GetComponent<PlayerCharacterController>().gameController = this;
+        CreateObjective(player);
         this.playerExists = true;
+
         getNumberofClosestPolis(4, building.position);
     }
 
