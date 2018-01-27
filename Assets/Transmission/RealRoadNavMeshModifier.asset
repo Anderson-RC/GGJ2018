@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   _types:
-  - _typeString: NavMeshSourceTag
-    _script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
+  - _typeString: RealRoadNavMeshModifier
+    _script: {fileID: 11500000, guid: d4f7d46ff943ae3468158c61c4329480, type: 3}
