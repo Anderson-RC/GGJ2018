@@ -11,9 +11,11 @@ public class GameController : MonoBehaviour {
     public bool playerExists = false;
 
     public List<GameObject> tiles = new List<GameObject>();
+    public List<GameObject> activePolis = new List<GameObject>();
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         
     }
 	
@@ -53,6 +55,7 @@ public class GameController : MonoBehaviour {
         Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
         Instantiate(playerPrefab, closestRoad, Quaternion.identity);
         this.playerExists = true;
+        getNumberofClosestPolis(4, building.position);
     }
 
     public void CheckForTileSpawning()
@@ -148,8 +151,15 @@ public class GameController : MonoBehaviour {
         //}
 
         //Spawn a car
-        Instantiate(policeCarPrefab, closestRoad, Quaternion.identity);
-        
+        this.activePolis.Add(Instantiate(policeCarPrefab, closestRoad, Quaternion.identity));   
+    }
+
+    public List<GameObject> getNumberofClosestPolis(int numberOfPolis, Vector3 requestLocation)
+    {
+        if (numberOfPolis < 1) { return new List<GameObject>(); }
+        int numberToTake = activePolis.Count() > numberOfPolis ? numberOfPolis : activePolis.Count();
+        List<GameObject> sortedPolis = this.activePolis.OrderBy(a => Vector3.Distance(requestLocation, a.transform.position)).Take(numberToTake).ToList();
+        return sortedPolis;
     }
 
 }
