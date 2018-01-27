@@ -7,6 +7,9 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
     public GameObject policeCarPrefab;
+    public GameObject playerPrefab;
+    public bool playerExists = false;
+
     public List<GameObject> tiles = new List<GameObject>();
 
 	// Use this for initialization
@@ -17,10 +20,47 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        List<GameObject> tilesToRemove = new List<GameObject>();
-	    foreach (GameObject maptile in tiles)
+        this.CheckForTileSpawning();
+        this.CheckForPlayerSpawn();
+
+    }
+
+    public void CheckForPlayerSpawn()
+    {
+        //if we don't have a player yet, check for mouse click.  
+        if (!playerExists)
         {
-            if(maptile.GetComponent<BoxCollider>() & (maptile.transform.childCount > 0))
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Transform objectHit = hit.transform;
+                    if (objectHit.gameObject.tag == "Building")
+                    {
+                        this.SpawnPlayerNearBuilding(objectHit);
+                    }
+                }
+            }
+        }
+    }
+
+    public void SpawnPlayerNearBuilding(Transform building)
+    {
+        //set player existence to true on spawn    
+        GameObject tile = building.parent.gameObject;
+        Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
+        Instantiate(playerPrefab, closestRoad, Quaternion.identity);
+        this.playerExists = true;
+    }
+
+    public void CheckForTileSpawning()
+    {
+        List<GameObject> tilesToRemove = new List<GameObject>();
+        foreach (GameObject maptile in tiles)
+        {
+            if (maptile.GetComponent<BoxCollider>() & (maptile.transform.childCount > 0))
             {
                 spawnPoliceCar(maptile);
                 tilesToRemove.Add(maptile);
@@ -31,7 +71,6 @@ public class GameController : MonoBehaviour {
         {
             tiles.Remove(maptile);
         }
-
     }
 
     public GameObject[] getRoadsInTile(GameObject tile)
@@ -61,12 +100,8 @@ public class GameController : MonoBehaviour {
         return Physics.OverlapBox(tileCenter, halfExtents);
     }
 
-    public void spawnPoliceCar(GameObject tile)
+    public Vector3 ClosestRoadPointToLocationInTile(Vector3 location, GameObject tile)
     {
-        BoxCollider coll = tile.GetComponent<BoxCollider>();
-        float halfExtent = coll.size.x / 2.0f;
-        Vector3 RandPosInTile = tile.transform.position 
-            + new Vector3(Random.Range(-1* halfExtent,halfExtent), 0, Random.Range(-1 * halfExtent,halfExtent));
         GameObject[] roads = getRoadsInTile(tile);
         List<Vector3> roadPoints = new List<Vector3>();
         float magnitude = float.MaxValue;
@@ -77,13 +112,40 @@ public class GameController : MonoBehaviour {
             //Vector3 roadPoint = Physics.ClosestPoint(RandPosInTile, roadCollider, roadCollider.transform.position, Quaternion.identity);
             //Vector3 roadPoint = roadCollider.ClosestPoint(RandPosInTile);
             Vector3 roadPoint = roadCollider.transform.position;
-            float distance = Vector3.Distance(RandPosInTile, roadPoint);
+            float distance = Vector3.Distance(location, roadPoint);
             if (distance < magnitude)
             {
                 magnitude = distance;
                 closestRoad = roadPoint;
             }
         }
+        return closestRoad;
+    }
+
+    public void spawnPoliceCar(GameObject tile)
+    {
+        BoxCollider coll = tile.GetComponent<BoxCollider>();
+        float halfExtent = coll.size.x / 2.0f;
+        Vector3 RandPosInTile = tile.transform.position 
+            + new Vector3(Random.Range(-1* halfExtent,halfExtent), 0, Random.Range(-1 * halfExtent,halfExtent));
+        Vector3 closestRoad = this.ClosestRoadPointToLocationInTile(RandPosInTile, tile);
+        //GameObject[] roads = getRoadsInTile(tile);
+       // List<Vector3> roadPoints = new List<Vector3>();
+        //float magnitude = float.MaxValue;
+        //Vector3 closestRoad = new Vector3();
+        //foreach (GameObject road in roads)
+        //{
+        //    MeshCollider roadCollider = road.GetComponent<MeshCollider>();
+        //    //Vector3 roadPoint = Physics.ClosestPoint(RandPosInTile, roadCollider, roadCollider.transform.position, Quaternion.identity);
+        //    //Vector3 roadPoint = roadCollider.ClosestPoint(RandPosInTile);
+        //    Vector3 roadPoint = roadCollider.transform.position;
+        //    float distance = Vector3.Distance(RandPosInTile, roadPoint);
+        //    if (distance < magnitude)
+        //    {
+        //        magnitude = distance;
+        //        closestRoad = roadPoint;
+        //    }
+        //}
 
         //Spawn a car
         Instantiate(policeCarPrefab, closestRoad, Quaternion.identity);

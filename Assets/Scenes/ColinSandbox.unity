@@ -222,6 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   policeCarPrefab: {fileID: 1529611555148334, guid: 833eca7c0ddb17243b3e976826bff18d,
     type: 2}
+  playerPrefab: {fileID: 1092554019526814, guid: b14b09239ddd8d844935d11630dc48a9,
+    type: 2}
+  playerExists: 0
   tiles: []
 --- !u!1001 &288429598
 Prefab:
@@ -809,7 +812,7 @@ Prefab:
     - target: {fileID: 224178813210018432, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -18.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224178813210018432, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
@@ -819,7 +822,7 @@ Prefab:
     - target: {fileID: 224178813210018432, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224538534500426518, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
@@ -839,7 +842,7 @@ Prefab:
     - target: {fileID: 224538534500426518, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -45.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224538534500426518, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
@@ -849,7 +852,7 @@ Prefab:
     - target: {fileID: 224538534500426518, guid: 00f5bf1ff996842fc82384f8f686fda6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00f5bf1ff996842fc82384f8f686fda6, type: 2}
