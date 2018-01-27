@@ -159,8 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f784c95ea1f5b284288d413616a6ad12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationEcho: {x: 0, y: 0, z: 0}
   stamina: 100
+  objective: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!136 &136015093455036600
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -183,8 +184,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 20
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

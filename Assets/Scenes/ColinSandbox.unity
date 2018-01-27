@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1235558828}
-  _visibleBuffer: 1
-  _disposeBuffer: 2
+  _visibleBuffer: 3
+  _disposeBuffer: 4
   _updateInterval: 0.2
 --- !u!114 &110210644
 MonoBehaviour:
@@ -228,6 +228,7 @@ MonoBehaviour:
     type: 2}
   playerExists: 0
   objective: {fileID: 0}
+  charControl: {fileID: 0}
   tiles: []
   activePolis: []
 --- !u!1001 &288429598

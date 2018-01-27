@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     public GameObject objectivePrefab;
     public bool playerExists = false;
     public GameObject objective;
+    public PlayerCharacterController charControl = null;
 
     public List<GameObject> tiles = new List<GameObject>();
     public List<GameObject> activePolis = new List<GameObject>();
@@ -54,14 +55,31 @@ public class GameController : MonoBehaviour {
     public void CreateObjective(GameObject player)
     {
         //find a point on a road at least 300m away from player
+        RaycastHit hit;
+        Vector3 loc = (Random.insideUnitCircle.normalized * Random.Range(300.0f, 500.0f)).ToVector3xz() + player.transform.position;
+        // Gets a vector that points from the objective position to the player.
+        var heading = player.transform.position - loc;
+        if(Physics.Raycast(loc,heading,out hit,500.0f,17)) {
+            SpawnObjectiveNearBuilding(hit.transform);
+        }
 
-        Vector3 loc = (Random.insideUnitCircle.normalized * Random.Range(300, 500)).ToVector3xz() + transform.position;
-        objective = (Instantiate(objectivePrefab, loc, Quaternion.identity));
-        player.GetComponent<PlayerCharacterController>().objective = objective;
+        //objective = (Instantiate(objectivePrefab, loc, Quaternion.identity));
+        //player.GetComponent<PlayerCharacterController>().objective = objective;
         //create an object to represent objective once we can see it
 
     }
+    public void SpawnObjectiveNearBuilding(Transform building)
+    {
+        //set player existence to true on spawn    
+        
+        GameObject tile = building.parent.gameObject;
+        Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
+        this.objective = (Instantiate(this.objectivePrefab, closestRoad, Quaternion.identity));
+        this.charControl.objective = objective;
 
+
+        //getNumberofClosestPolis(4, building.position);
+    }
     public void SpawnPlayerNearBuilding(Transform building)
     {
         //set player existence to true on spawn    
@@ -69,10 +87,11 @@ public class GameController : MonoBehaviour {
         Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
         GameObject player = (Instantiate(playerPrefab, closestRoad, Quaternion.identity));
         player.GetComponent<PlayerCharacterController>().gameController = this;
+        this.charControl = player.GetComponent<PlayerCharacterController>();
         CreateObjective(player);
         this.playerExists = true;
-
-        getNumberofClosestPolis(4, building.position);
+        
+        //getNumberofClosestPolis(4, building.position);
     }
 
     public void CheckForTileSpawning()
