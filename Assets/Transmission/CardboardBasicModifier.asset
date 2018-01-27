@@ -13,4 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   _projectMapImagery: 0
-  _materials: []
+  _materials:
+  - Materials:
+    - {fileID: 2100000, guid: cd8dbd9bc87d9e348ab0a5f3c4ca6b15, type: 2}
+  - Materials:
+    - {fileID: 2100000, guid: cd8dbd9bc87d9e348ab0a5f3c4ca6b15, type: 2}

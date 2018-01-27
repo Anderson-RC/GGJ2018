@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mapIdType: 1
   _customStyle:
-    Name: 
-    Id: mapbox://styles/mapbox/cjavylmncmgeb2rlnpimhp95q
-    Modified: 
-    UserName: 
-  _mapId: mapbox://styles/mapbox/cjavylmncmgeb2rlnpimhp95q
+    Name: Dark-copy
+    Id: mapbox://styles/rossgcu/cjcxvma381ie92sqtnw65vhyr
+    Modified: 2018-01-27T21:36:37.274Z
+    UserName: rossgcu
+  _mapId: mapbox://styles/rossgcu/cjcxvma381ie92sqtnw65vhyr
   _useCompression: 0
   _useMipMap: 1
   _useRetina: 1
