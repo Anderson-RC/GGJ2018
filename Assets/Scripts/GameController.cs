@@ -36,18 +36,7 @@ public class GameController : MonoBehaviour {
 
     public GameObject[] getRoadsInTile(GameObject tile)
     {
-        //GameObject[] pieces = tile.transform.GetComponentsInChildren<GameObject>();
-        //return pieces.Where(child => child.tag == "Road").ToArray();
         List<GameObject> roadsList = new List<GameObject>();
-
-        //foreach (Transform child in transform)
-        //{
-        //    if (child.tag == "Road")
-        //    {
-        //        roadsList.Add(child.gameObject);
-        //    }
-        //}
-        //return roadsList.ToArray();
 
         for (int i = 0; i < tile.transform.childCount; i++)
         {
@@ -75,7 +64,9 @@ public class GameController : MonoBehaviour {
     public void spawnPoliceCar(GameObject tile)
     {
         BoxCollider coll = tile.GetComponent<BoxCollider>();
-        Vector3 RandPosInTile = tile.transform.position + new Vector3(coll.size.x / 2.0f, 0, coll.size.z / 2.0f);
+        float halfExtent = coll.size.x / 2.0f;
+        Vector3 RandPosInTile = tile.transform.position 
+            + new Vector3(Random.Range(-1* halfExtent,halfExtent), 0, Random.Range(-1 * halfExtent,halfExtent));
         GameObject[] roads = getRoadsInTile(tile);
         List<Vector3> roadPoints = new List<Vector3>();
         float magnitude = float.MaxValue;
