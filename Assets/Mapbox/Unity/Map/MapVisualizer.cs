@@ -2,7 +2,7 @@ namespace Mapbox.Unity.Map
 {
 	using UnityEngine;
 	using Mapbox.Unity.MeshGeneration.Data;
-	using Mapbox.Map;
+    using Mapbox.Map;
 
 	public enum ModuleState
 	{
@@ -43,6 +43,8 @@ namespace Mapbox.Unity.Map
 				0, 
 				(float)(rect.Center.y - map.CenterMercator.y) * scale);
 			tile.transform.localPosition = position;
+            Debug.Log(tile.transform.parent);
+            tile.transform.parent.gameObject.GetComponent<GameController>().tiles.Add(tile.transform.gameObject);
 		}
 	}
 }
