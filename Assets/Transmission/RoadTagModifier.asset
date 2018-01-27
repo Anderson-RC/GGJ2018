@@ -8,10 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b6ec6b924494ffda604db0a299df8d, type: 3}
-  m_Name: RoadNavMeshModifier
+  m_Script: {fileID: 11500000, guid: ed72caeef2d549348944c7694c599b55, type: 3}
+  m_Name: RoadTagModifier
   m_EditorClassIdentifier: 
   Active: 1
-  _types:
-  - _typeString: PathNavMeshModifier
-    _script: {fileID: 11500000, guid: 87005b9d6740d4e41a410f863651b1c0, type: 3}
+  _tag: Road

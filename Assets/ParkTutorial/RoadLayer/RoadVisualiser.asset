@@ -17,7 +17,7 @@ MonoBehaviour:
   Filters: []
   _defaultStack: {fileID: 11400000, guid: 488529c395c28be41b7a800df0b0a138, type: 2}
   Stacks:
-  - Type: footway,sidewalk,crossing,road
+  - Type: footway,sidewalk,crossing
     Types:
     - footway
     - sidewalk
