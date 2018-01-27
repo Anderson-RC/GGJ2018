@@ -62,6 +62,10 @@ public class GameController : MonoBehaviour {
         if(Physics.Raycast(loc,heading,out hit,500.0f,17)) {
             SpawnObjectiveNearBuilding(hit.transform);
         }
+        else
+        {
+            CreateObjective(player);
+        }
 
         //objective = (Instantiate(objectivePrefab, loc, Quaternion.identity));
         //player.GetComponent<PlayerCharacterController>().objective = objective;
