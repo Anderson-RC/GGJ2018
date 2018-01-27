@@ -224,8 +224,10 @@ MonoBehaviour:
     type: 2}
   playerPrefab: {fileID: 1092554019526814, guid: b14b09239ddd8d844935d11630dc48a9,
     type: 2}
+  objectivePrefab: {fileID: 1106112130247680, guid: abcd971e11d09db49991ce5520d44dcf,
+    type: 2}
   playerExists: 0
-  objective: {x: 0, y: 0, z: 0}
+  objective: {fileID: 0}
   tiles: []
   activePolis: []
 --- !u!1001 &288429598

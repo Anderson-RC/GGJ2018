@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Mapbox.Unity.MeshGeneration.Data;
 using System.Linq;
 using UnityEngine;
+using Mapbox.Unity.Utilities;
 
 public class GameController : MonoBehaviour {
 
     public GameObject policeCarPrefab;
     public GameObject playerPrefab;
+    public GameObject objectivePrefab;
     public bool playerExists = false;
-    public Vector3 objective;
+    public GameObject objective;
 
     public List<GameObject> tiles = new List<GameObject>();
     public List<GameObject> activePolis = new List<GameObject>();
@@ -53,9 +55,11 @@ public class GameController : MonoBehaviour {
     {
         //find a point on a road at least 300m away from player
 
-       // var target =  (Random.insideUnitCircle * Random.Range(300.0f, 500.0f)).ToVector3xz() + transform.position
-        //set the location on gc, and on the player
+        Vector3 loc = (Random.insideUnitCircle.normalized * Random.Range(300, 500)).ToVector3xz() + transform.position;
+        objective = (Instantiate(objectivePrefab, loc, Quaternion.identity));
+        player.GetComponent<PlayerCharacterController>().objective = objective;
         //create an object to represent objective once we can see it
+
     }
 
     public void SpawnPlayerNearBuilding(Transform building)

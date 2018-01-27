@@ -5,8 +5,8 @@ using UnityEngine.AI;
 public class PlayerCharacterController : MonoBehaviour
 {
     NavMeshAgent agent;
-    public Vector3 destinationEcho;
     public float stamina = 100.0f;
+    public GameObject objective;
     public GameController gameController;
 
     void Start()
@@ -75,7 +75,7 @@ public class PlayerCharacterController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 agent.destination = hit.point;
-                destinationEcho = agent.destination;
+               
             }
         }
     }
