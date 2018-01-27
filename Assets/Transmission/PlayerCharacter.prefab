@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4858779889663278}
   - component: {fileID: 195487862685052566}
   - component: {fileID: 95744005430401758}
-  - component: {fileID: 114287275308934990}
+  - component: {fileID: 114006762003470472}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114287275308934990
+--- !u!114 &114006762003470472
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -139,11 +139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1092554019526814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40568916e23c98e44929f578367d299a, type: 3}
+  m_Script: {fileID: 11500000, guid: f150d84991321974eb6d28e2009399e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeRange: {x: 1, y: 50}
-  _distanceRange: {x: 200, y: 200}
+  destinationEcho: {x: 0, y: 0, z: 0}
 --- !u!195 &195487862685052566
 NavMeshAgent:
   m_ObjectHideFlags: 1
