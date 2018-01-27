@@ -52,6 +52,8 @@ public class GameController : MonoBehaviour {
         }
     }
 
+ 
+
     public void CreateObjective(GameObject player)
     {
         //find a point on a road at least 300m away from player

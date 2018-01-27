@@ -36,7 +36,7 @@ public class PlayerCharacterController : MonoBehaviour
     {
        if (other.gameObject.layer == 15)
        {
-            stamina -= 0.5f;
+            stamina -= 0.1f;
 
        }
 
@@ -48,6 +48,13 @@ public class PlayerCharacterController : MonoBehaviour
         //CollisionDetection with Vision Cones
         //One layer for all vision, then use tags or owner types to decide results
 
+    }
+
+    public void CompleteObjective()
+    {
+        this.objective = null;
+        this.gameController.objective = null;
+        this.gameController.CreateObjective(this.gameObject);
     }
 
     void CheckIfDead()
