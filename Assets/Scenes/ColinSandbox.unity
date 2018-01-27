@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 110210643}
   - component: {fileID: 110210645}
   - component: {fileID: 110210646}
-  - component: {fileID: 110210647}
   m_Layer: 9
   m_Name: Map
   m_TagString: Untagged
@@ -224,26 +223,6 @@ MonoBehaviour:
   policeCarPrefab: {fileID: 1529611555148334, guid: 833eca7c0ddb17243b3e976826bff18d,
     type: 2}
   tiles: []
---- !u!114 &110210647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 110210640}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbec1ed7768a40ea93d476c23a129c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zoom: 18
-  _initializeOnStart: 1
-  _latitudeLongitudeString: 40.7825, -73.966111111111
-  _root: {fileID: 0}
-  _tileProvider: {fileID: 110210643}
-  _mapVisualizer: {fileID: 11400000, guid: 5b83ad0f48d51e646a055541cb8bd350, type: 2}
-  _unityTileSize: 100
-  _snapMapHeightToZero: 1
-  _useRelativeScale: 0
 --- !u!1001 &288429598
 Prefab:
   m_ObjectHideFlags: 0
@@ -688,6 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Tracked: {fileID: 110210641}
+  AgentID: 0
   m_Size: {x: 600, y: 20, z: 600}
 --- !u!1001 &1400100793
 Prefab:
