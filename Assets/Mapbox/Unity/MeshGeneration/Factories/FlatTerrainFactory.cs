@@ -20,8 +20,10 @@
 
 		[SerializeField]
 		private bool _addCollider = false;
+        [SerializeField]
+        private float _colliderHeight = 20;
 
-		[SerializeField]
+        [SerializeField]
 		private bool _addToLayer = false;
 
 		[SerializeField]
@@ -72,7 +74,10 @@
 			if (_addCollider && tile.Collider == null)
 			{
 				tile.gameObject.AddComponent<BoxCollider>();
-			}
+                Vector3 newSize = tile.gameObject.GetComponent<BoxCollider>().size + new Vector3(0, _colliderHeight, 0);
+                var boxCollider = tile.gameObject.GetComponent<BoxCollider>() as BoxCollider;
+                boxCollider.size += new Vector3(0,20,0);
+            }
 		}
 
 		internal override void OnUnregistered(UnityTile tile)
