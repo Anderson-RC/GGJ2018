@@ -21,7 +21,7 @@
 		[SerializeField]
 		private bool _addCollider = false;
         [SerializeField]
-        private float _colliderHeight = 20;
+        private float _colliderHeight = 0;
 
         [SerializeField]
 		private bool _addToLayer = false;
@@ -76,7 +76,7 @@
 				tile.gameObject.AddComponent<BoxCollider>();
                 Vector3 newSize = tile.gameObject.GetComponent<BoxCollider>().size + new Vector3(0, _colliderHeight, 0);
                 var boxCollider = tile.gameObject.GetComponent<BoxCollider>() as BoxCollider;
-                boxCollider.size += new Vector3(0,20,0);
+                boxCollider.size += new Vector3(0,0,0);
             }
 		}
 

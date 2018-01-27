@@ -62,7 +62,7 @@ public class RealRoadNavMeshModifier : MonoBehaviour
             s.area = 0;
             var modifier = mf.GetComponent<NavMeshModifier>();
             modifier.overrideArea = true;
-            modifier.area = 4;
+            modifier.area = 0;
             sources.Add(s);
         }
 

@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 110210644}
   - component: {fileID: 110210643}
   - component: {fileID: 110210645}
+  - component: {fileID: 110210646}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoom: 16
   _initializeOnStart: 1
-  _latitudeLongitudeString: 37.7648, -122.463
+  _latitudeLongitudeString: 40.7825, -73.966111111111
   _root: {fileID: 0}
   _tileProvider: {fileID: 110210643}
   _mapVisualizer: {fileID: 11400000, guid: 5b83ad0f48d51e646a055541cb8bd350, type: 2}
@@ -208,6 +209,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Mapbox.Unity.Map.TileErrorEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &110210646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110210640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4573211e4149744850d7135358acaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  policeCarPrefab: {fileID: 1529611555148334, guid: 833eca7c0ddb17243b3e976826bff18d,
+    type: 2}
+  tiles: []
 --- !u!1001 &288429598
 Prefab:
   m_ObjectHideFlags: 0
@@ -485,6 +500,10 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611603657303738, guid: 98be219873e6d4dffb5949746f515a33, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98be219873e6d4dffb5949746f515a33, type: 2}
