@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f09effe9db3dd4e9e825475d698ca3, type: 3}
   m_Name: ExplorerDefaultRoad
   m_EditorClassIdentifier: 
-  _moveFeaturePositionTo: 0
+  _moveFeaturePositionTo: 2
   MeshModifiers:
   - {fileID: 11400000, guid: b486720f300660244af7af227670240d, type: 2}
   - {fileID: 11400000, guid: 51f99d677d3e0eb439d2967d1187478a, type: 2}

@@ -126,7 +126,8 @@ GameObject:
   - component: {fileID: 110210643}
   - component: {fileID: 110210645}
   - component: {fileID: 110210646}
-  m_Layer: 0
+  - component: {fileID: 110210647}
+  m_Layer: 9
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,9 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cb9a85be6f84591938618fa232ce85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zoom: 16
+  _zoom: 18
   _initializeOnStart: 1
-  _latitudeLongitudeString: 40.7825, -73.966111111111
+  _latitudeLongitudeString: 55.860525847711, -4.24397669478321
   _root: {fileID: 0}
   _tileProvider: {fileID: 110210643}
   _mapVisualizer: {fileID: 11400000, guid: 5b83ad0f48d51e646a055541cb8bd350, type: 2}
@@ -223,6 +224,26 @@ MonoBehaviour:
   policeCarPrefab: {fileID: 1529611555148334, guid: 833eca7c0ddb17243b3e976826bff18d,
     type: 2}
   tiles: []
+--- !u!114 &110210647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110210640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbec1ed7768a40ea93d476c23a129c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zoom: 18
+  _initializeOnStart: 1
+  _latitudeLongitudeString: 40.7825, -73.966111111111
+  _root: {fileID: 0}
+  _tileProvider: {fileID: 110210643}
+  _mapVisualizer: {fileID: 11400000, guid: 5b83ad0f48d51e646a055541cb8bd350, type: 2}
+  _unityTileSize: 100
+  _snapMapHeightToZero: 1
+  _useRelativeScale: 0
 --- !u!1001 &288429598
 Prefab:
   m_ObjectHideFlags: 0
@@ -563,6 +584,7 @@ GameObject:
   - component: {fileID: 1235558826}
   - component: {fileID: 1235558825}
   - component: {fileID: 1235558824}
+  - component: {fileID: 1235558830}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -654,6 +676,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &1235558830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235558823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115dfe7b0938447cbbf9507076f54049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Tracked: {fileID: 110210641}
+  m_Size: {x: 600, y: 20, z: 600}
 --- !u!1001 &1400100793
 Prefab:
   m_ObjectHideFlags: 0

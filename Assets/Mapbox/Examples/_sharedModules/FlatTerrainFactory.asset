@@ -17,5 +17,5 @@ MonoBehaviour:
   _sideWallMaterial: {fileID: 0}
   _addCollider: 1
   _colliderHeight: 20
-  _addToLayer: 0
-  _layerId: 0
+  _addToLayer: 1
+  _layerId: 9
