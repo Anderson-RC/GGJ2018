@@ -42,4 +42,6 @@ public class UIController : MonoBehaviour {
         if (healthFraction < 0.0f) { healthBarSlider.value = 1.0f; }
         else { healthBarSlider.value = healthFraction; }
     }
+
+  
 }

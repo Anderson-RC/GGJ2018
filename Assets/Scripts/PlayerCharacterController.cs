@@ -36,12 +36,24 @@ public class PlayerCharacterController : MonoBehaviour
         if (other.gameObject.layer == 15)
         {
             Debug.Log("Spotted");
-            stamina -= 0.2f;
+            HUD.SendMessage("Avoid the Authorities, they shoot on sight!");
+            gameController.PlayWound();
+            stamina -= 0.21f;
         }
 
         //goodhat
         if (other.gameObject.layer == 18)
         {
+            if (other.GetComponent<GoodHatController>().healthpack > 0)
+            {
+                HUD.SendMessage("Your follower healed you and confused the police");
+            }
+            else
+            {
+                HUD.SendMessage("Your follower confused the police");
+            }
+
+            gameController.PlayPrank();
             other.GetComponent<GoodHatController>().CallPolis(gameController);
             stamina += other.GetComponent<GoodHatController>().healthpack;
             other.GetComponent<GoodHatController>().healthpack = 0.0f;
@@ -49,7 +61,8 @@ public class PlayerCharacterController : MonoBehaviour
         //badhat
         if (other.gameObject.layer == 19)
         {
-            Debug.Log("attempting 999 call");
+            gameController.Play911();
+            HUD.SendMessage("That spineless suit called the Cops on you!");
             other.GetComponent<BadHatController>().CallPolis(gameController);
         }
     }
@@ -84,6 +97,7 @@ public class PlayerCharacterController : MonoBehaviour
             //notify player - 
             //gc.NotifyNextOfKin()
             gameController.playerExists = false;
+            HUD.SendMessage("You Failed, but the message must live on!", 10.0f);
             Destroy(gameObject);
         }
 

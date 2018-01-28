@@ -242,6 +242,7 @@ MonoBehaviour:
   _distanceRange: {x: 5, y: 100}
   viewCone: {fileID: 0}
   targetEntity: {fileID: 0}
+  healthpack: 0.2
   state: 0
   distractionLength: 5
 --- !u!114 &114624695866346426
@@ -323,7 +324,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef10befa9bc64414382de94deb048b9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a620bd369a67a7b44a8afa808d995532, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

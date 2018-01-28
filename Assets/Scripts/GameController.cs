@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour {
     public GameObject goodHatPrefab;
     public GameObject badHatPrefab;
     public UIController HUD;
+    public AudioClip call911;
+    public AudioClip prankCall;
+    public AudioClip wound;
 
     public bool playerExists = false;
     public GameObject objective;
@@ -24,18 +27,36 @@ public class GameController : MonoBehaviour {
     public List<GameObject> goodHats = new List<GameObject>();
     public List<GameObject> badHats = new List<GameObject>();
 
+    public AudioSource soundEffects;
+
 
     // Use this for initialization
     void Start () {
-        
+
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 
         this.CheckForTileSpawning();
         this.CheckForPlayerSpawn();
 
+    }
+
+    public void PlayPrank()
+    {
+        soundEffects.PlayOneShot(prankCall);
+    }
+
+    public void Play911()
+    {
+        soundEffects.PlayOneShot(call911);
+    }
+
+    public void PlayWound()
+    {
+        soundEffects.PlayOneShot(wound);
     }
 
     public void CheckForPlayerSpawn()
@@ -55,6 +76,10 @@ public class GameController : MonoBehaviour {
                         this.SpawnPlayerNearBuilding(objectHit);
                     }
                 }
+            }
+            else if (!HUD.message.enabled)
+            {
+                HUD.SendMessage("Click a building to start");
             }
         }
     }
@@ -92,6 +117,7 @@ public class GameController : MonoBehaviour {
         {
             this.objective = (Instantiate(this.objectivePrefab, closestRoad, Quaternion.identity));
             this.charControl.objective = objective;
+            
         }
         else
         {
@@ -137,7 +163,9 @@ public class GameController : MonoBehaviour {
         this.charControl = player.GetComponent<PlayerCharacterController>();
         CreateObjective(player);
         this.playerExists = true;
-        
+        HUD.SendMessage("Follow the Arrow to your objective", 1000.0f);
+        HUD.SetObjectiveCounter(0);
+
         //getNumberofClosestPolis(4, building.position);
     }
 
