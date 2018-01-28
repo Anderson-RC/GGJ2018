@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4821024536317844}
   - component: {fileID: 195970023426212490}
-  - component: {fileID: 114555673086054114}
   - component: {fileID: 54758732209378132}
   - component: {fileID: 136927791530726306}
+  - component: {fileID: 114766195217496166}
   m_Layer: 19
   m_Name: hatbadPrefab
   m_TagString: Untagged
@@ -130,7 +130,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114555673086054114
+--- !u!114 &114766195217496166
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1229598653816576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b4688c87cc29e4f95283061c9dce78, type: 3}
+  m_Script: {fileID: 11500000, guid: ebc3bae17f6c6bc4cbf5484a3fb66365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _timeRange: {x: 10, y: 20}
@@ -146,7 +146,6 @@ MonoBehaviour:
   viewCone: {fileID: 0}
   targetEntity: {fileID: 0}
   state: 0
-  distractionLength: 5
 --- !u!136 &136927791530726306
 CapsuleCollider:
   m_ObjectHideFlags: 1

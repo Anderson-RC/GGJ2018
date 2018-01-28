@@ -62,6 +62,7 @@ public class PolisCarController : MonoBehaviour
     {
         if ((transform.position - _agent.destination).sqrMagnitude < 1 || _waitTime < 0f)
         {
+            _agent.speed = 10;
             SetPatrolling();
         }
         _waitTime -= Time.deltaTime;
@@ -79,6 +80,7 @@ public class PolisCarController : MonoBehaviour
     {
         this.state = State.TIPPEDOFF;
         _agent.destination = lastSeen;
+        _agent.speed = 30;
         _waitTime =  _timeRange.y;
 
     }

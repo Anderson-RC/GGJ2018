@@ -27,9 +27,22 @@ public class PlayerCharacterController : MonoBehaviour
     {
         Debug.Log("Collisde");
         Debug.Log(other.gameObject);
+        //polis
         if (other.gameObject.layer == 15)
         {
             Debug.Log("Spotted");
+        }
+
+        //goodhat
+        if (other.gameObject.layer == 18)
+        {
+            other.GetComponent<GoodHatController>().CallPolis(gameController);
+        }
+        //badhat
+        if (other.gameObject.layer == 19)
+        {
+            Debug.Log("attempting 999 call");
+            other.GetComponent<GoodHatController>().CallPolis(gameController);
         }
     }
 
