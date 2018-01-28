@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using Mapbox.Unity.Utilities;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class GoodHatController : MonoBehaviour
@@ -19,6 +20,7 @@ public class GoodHatController : MonoBehaviour
         CONVERTING,
         DISTRACTING,
         STOPPED,
+        
     }
     public State state;
     public float distractionLength = 5.0f;
@@ -44,6 +46,7 @@ public class GoodHatController : MonoBehaviour
         if (this.state == State.CONVERTING) { WalkingUpdate(); }
         if (this.state == State.DISTRACTING) { DistractingUpdate(); }
         if (this.state == State.STOPPED) { StoppedUpdate(); }
+        
 
     }
     private void WalkingUpdate()
@@ -90,6 +93,21 @@ public class GoodHatController : MonoBehaviour
     public void SetWalking()
     {
         this.state = State.WALKING;
+    }
+
+    public void CallPolis(GameController gameController)
+    {
+        if (this.state == State.WALKING)
+        {
+            List<GameObject> nearbyPolis = gameController.getNumberofClosestPolis(10, this.transform.position);
+            Vector3 loc = (Random.insideUnitCircle.normalized * Random.Range(300.0f, 500.0f)).ToVector3xz() + this.transform.position;
+            foreach (GameObject polis in nearbyPolis)
+            {
+                polis.GetComponent<PolisCarController>().TipOffPolis(loc);
+            }
+            StopGoodHat();
+        }
+        
     }
 
 
