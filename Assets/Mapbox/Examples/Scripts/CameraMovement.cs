@@ -66,7 +66,7 @@ namespace Mapbox.Examples
 			var y = 0f;
 			var z = 0f;
 
-			if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+			if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
 			{
 				var mousePosition = Input.mousePosition;
 				mousePosition.z = _referenceCamera.transform.localPosition.y;
