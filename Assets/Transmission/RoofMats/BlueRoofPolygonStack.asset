@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f09effe9db3dd4e9e825475d698ca3, type: 3}
-  m_Name: TransparentGreySelectablePolygonStack
+  m_Name: BlueRoofPolygonStack
   m_EditorClassIdentifier: 
   _moveFeaturePositionTo: 0
   MeshModifiers:
@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b432bf85b0df280468dcfdaf5a9b90d0, type: 2}
   - {fileID: 11400000, guid: a49403503b2b1534f832833cbd477437, type: 2}
   GoModifiers:
-  - {fileID: 11400000, guid: c1685e4f0c7b49d4084d2746b9d03d55, type: 2}
+  - {fileID: 11400000, guid: 11e54668a607e3d4182b6ab725091285, type: 2}
   - {fileID: 11400000, guid: b7b664c5d0b1dfd4ea8bf239a71912ef, type: 2}
   - {fileID: 11400000, guid: 14ec972a1cec2dc429f5eca7d22b572f, type: 2}
   - {fileID: 11400000, guid: aa354e89f869a4db0a6c3ceb3c79d0be, type: 2}

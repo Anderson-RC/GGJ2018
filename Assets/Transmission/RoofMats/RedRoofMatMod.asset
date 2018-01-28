@@ -9,8 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c93f3debdba4e48adb1b99cad0a0d2, type: 3}
-  m_Name: BlueRoofMatMod
+  m_Name: RedRoofMatMod
   m_EditorClassIdentifier: 
   Active: 1
   _projectMapImagery: 0
-  _materials: []
+  _materials:
+  - Materials:
+    - {fileID: 2100000, guid: e4b938da9534ee042b88a9a4013c465e, type: 2}
+  - Materials:
+    - {fileID: 2100000, guid: e4b938da9534ee042b88a9a4013c465e, type: 2}

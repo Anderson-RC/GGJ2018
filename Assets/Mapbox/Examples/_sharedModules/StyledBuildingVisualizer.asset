@@ -21,14 +21,14 @@ MonoBehaviour:
   - Type: residential
     Types:
     - residential
-    Stack: {fileID: 11400000, guid: 8c7bd733341fc0a47bfbaea08b5f15ba, type: 2}
+    Stack: {fileID: 11400000, guid: 81ad8472ed08ab84bb28e542ef951972, type: 2}
   - Type: commercial
     Types:
     - commercial
-    Stack: {fileID: 11400000, guid: d234d20d9d280f84cb21cb7d8cac3cab, type: 2}
+    Stack: {fileID: 11400000, guid: ae2dacc66dc2fcf4aadbc87a225b35b7, type: 2}
   - Type: hospital
     Types:
     - hospital
-    Stack: {fileID: 11400000, guid: 8c7bd733341fc0a47bfbaea08b5f15ba, type: 2}
+    Stack: {fileID: 11400000, guid: 62f537f0f05b3b34fb77bbe7e6a32f9d, type: 2}
   _enableCoroutines: 1
   _entityPerCoroutine: 20
