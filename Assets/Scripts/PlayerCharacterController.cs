@@ -26,6 +26,7 @@ public class PlayerCharacterController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collisde");
+        Debug.Log(other.gameObject);
         if (other.gameObject.layer == 15)
         {
             Debug.Log("Spotted");
