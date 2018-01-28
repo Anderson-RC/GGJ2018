@@ -272,12 +272,17 @@ MonoBehaviour:
     type: 2}
   objectivePrefab: {fileID: 1106112130247680, guid: abcd971e11d09db49991ce5520d44dcf,
     type: 2}
-  goodHatPrefab: {fileID: 0}
+  goodHatPrefab: {fileID: 1229598653816576, guid: 5007120a891317e4eb1fa5962e03e8ff,
+    type: 2}
+  badHatPrefab: {fileID: 1229598653816576, guid: 5007120a891317e4eb1fa5962e03e8ff,
+    type: 2}
   playerExists: 0
   objective: {fileID: 0}
   charControl: {fileID: 0}
   tiles: []
   activePolis: []
+  goodHats: []
+  badHats: []
 --- !u!1001 &288429598
 Prefab:
   m_ObjectHideFlags: 0

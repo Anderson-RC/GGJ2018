@@ -55,8 +55,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4460871674967350}
   - component: {fileID: 195883643316273472}
-  - component: {fileID: 114092133502455960}
   - component: {fileID: 95674141109660768}
+  - component: {fileID: 114598903353279964}
   m_Layer: 0
   m_Name: PoliceCar
   m_TagString: Untagged
@@ -216,7 +216,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114092133502455960
+--- !u!114 &114598903353279964
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -224,11 +224,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1529611555148334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40568916e23c98e44929f578367d299a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ce3cb22884afa14a95e20fa17699164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeRange: {x: 0, y: 30}
-  _distanceRange: {x: 200, y: 200}
+  _timeRange: {x: 0, y: 0}
+  _distanceRange: {x: 0, y: 0}
+  viewCone: {fileID: 0}
+  state: 0
 --- !u!195 &195883643316273472
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     public GameObject playerPrefab;
     public GameObject objectivePrefab;
     public GameObject goodHatPrefab;
+    public GameObject badHatPrefab;
 
     public bool playerExists = false;
     public GameObject objective;
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour {
 
     public List<GameObject> tiles = new List<GameObject>();
     public List<GameObject> activePolis = new List<GameObject>();
+    public List<GameObject> goodHats = new List<GameObject>();
+    public List<GameObject> badHats = new List<GameObject>();
 
 
     // Use this for initialization
@@ -144,6 +147,15 @@ public class GameController : MonoBehaviour {
             if (maptile.GetComponent<BoxCollider>() & (maptile.transform.childCount > 0))
             {
                 spawnPoliceCar(maptile);
+                
+                //if there are any paths, add people
+                for (int i = 0; i < maptile.transform.childCount; i++)
+                {
+                    if (maptile.transform.GetChild(i).tag == "Path")
+                    {
+                        spawnPeople(maptile.transform.GetChild(i).gameObject);
+                    }
+                }
                 tilesToRemove.Add(maptile);
             }
         }
@@ -201,6 +213,12 @@ public class GameController : MonoBehaviour {
             }
         }
         return closestRoad;
+    }
+
+    public void spawnPeople(GameObject path)
+    {
+        
+        this.goodHats.Add(Instantiate(goodHatPrefab, path.transform.position, Quaternion.identity));
     }
 
     public void spawnPoliceCar(GameObject tile)
