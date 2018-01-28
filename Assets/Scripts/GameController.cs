@@ -217,8 +217,15 @@ public class GameController : MonoBehaviour {
 
     public void spawnPeople(GameObject path)
     {
+        if (this.goodHats.Count() < this.badHats.Count())
+        {
+            this.goodHats.Add(Instantiate(goodHatPrefab, path.transform.position, Quaternion.identity));
+        }
+        else
+        {
+            this.badHats.Add(Instantiate(badHatPrefab, path.transform.position, Quaternion.identity));
+        }
         
-        this.goodHats.Add(Instantiate(goodHatPrefab, path.transform.position, Quaternion.identity));
     }
 
     public void spawnPoliceCar(GameObject tile)
