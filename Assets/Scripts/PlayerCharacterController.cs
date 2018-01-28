@@ -36,13 +36,15 @@ public class PlayerCharacterController : MonoBehaviour
         if (other.gameObject.layer == 15)
         {
             Debug.Log("Spotted");
-            stamina -= 0.1f;
+            stamina -= 0.2f;
         }
 
         //goodhat
         if (other.gameObject.layer == 18)
         {
             other.GetComponent<GoodHatController>().CallPolis(gameController);
+            stamina += other.GetComponent<GoodHatController>().healthpack;
+            other.GetComponent<GoodHatController>().healthpack = 0.0f;
         }
         //badhat
         if (other.gameObject.layer == 19)

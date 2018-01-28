@@ -14,6 +14,7 @@ public class GoodHatController : MonoBehaviour
 
     public GameObject viewCone;
     public GameObject targetEntity;
+    public float healthpack = 0.2f;
     public enum State
     {
         WALKING,
