@@ -4,6 +4,7 @@ using Mapbox.Unity.MeshGeneration.Data;
 using System.Linq;
 using UnityEngine;
 using Mapbox.Unity.Utilities;
+using UnityEngine.AI;
 
 public class GameController : MonoBehaviour {
 
@@ -80,11 +81,21 @@ public class GameController : MonoBehaviour {
         
         GameObject tile = building.parent.gameObject;
         Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
-        this.objective = (Instantiate(this.objectivePrefab, closestRoad, Quaternion.identity));
-        this.charControl.objective = objective;
-
-
-        //getNumberofClosestPolis(4, building.position);
+        // Check if closestRoad is reachable
+        NavMeshAgent agent = this.charControl.gameObject.GetComponent<NavMeshAgent>();
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(closestRoad, path);
+        if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        {
+            CreateObjective(this.charControl.gameObject);
+        }
+        else
+        {
+            //if so then create objective
+            this.objective = (Instantiate(this.objectivePrefab, closestRoad, Quaternion.identity));
+            this.charControl.objective = objective;
+        }
+     
     }
     public void SpawnPlayerNearBuilding(Transform building)
     {
