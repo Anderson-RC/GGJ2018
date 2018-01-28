@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4338391264596560}
   - component: {fileID: 195551764574484184}
   - component: {fileID: 114024460006127952}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: hatgoodPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4332493516934426}
   - component: {fileID: 33430295107472876}
   - component: {fileID: 23943725428261970}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
