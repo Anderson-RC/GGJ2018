@@ -57,7 +57,7 @@ public class BadHatController : MonoBehaviour
         _elapsedTime += Time.deltaTime;
     }
 
-    public void StopBadHat(float stoppedTime = 5.0f)
+    public void StopBadHat(float stoppedTime = 10.0f)
     {
         this.state = State.STOPPED;
         this._stoppedTimer = stoppedTime;
@@ -65,7 +65,9 @@ public class BadHatController : MonoBehaviour
     private void StoppedUpdate()
     {
         _stoppedTimer -= Time.deltaTime;
-        if (_stoppedTimer < 0f) { this.SetWalking(); }
+        if (_stoppedTimer < 0f) {
+            this.transform.Find("ActionSprite").gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            this.SetWalking(); }
     }
     public void SetWalking()
     {
@@ -81,10 +83,11 @@ public class BadHatController : MonoBehaviour
     {
         if (this.state == State.WALKING)
         {
+            this.transform.Find("ActionSprite").gameObject.GetComponent<SpriteRenderer>().enabled = true;
             List<GameObject> nearbyPolis = gameController.getNumberofClosestPolis(10, this.transform.position);
             foreach (GameObject polis in nearbyPolis)
             {
-                polis.GetComponent<PolisCarController>().TipOffPolis(this.transform.position);
+                polis.GetComponent<PolisCarController>().TipOffPolis(this.transform.position, "RealTipOff");
             }
             StopBadHat();
         }

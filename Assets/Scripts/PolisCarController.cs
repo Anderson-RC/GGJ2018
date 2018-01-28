@@ -63,6 +63,8 @@ public class PolisCarController : MonoBehaviour
         if ((transform.position - _agent.destination).sqrMagnitude < 1 || _waitTime < 0f)
         {
             _agent.speed = 10;
+            this.transform.Find("RealTipOff").gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            this.transform.Find("FakeTipOff").gameObject.GetComponent<SpriteRenderer>().enabled = false;
             SetPatrolling();
         }
         _waitTime -= Time.deltaTime;
@@ -76,9 +78,10 @@ public class PolisCarController : MonoBehaviour
     {
         this.state = State.PATROLLING;
     }
-    public void TipOffPolis(Vector3 lastSeen)
+    public void TipOffPolis(Vector3 lastSeen, string TipOffType)
     {
         this.state = State.TIPPEDOFF;
+        this.transform.Find(TipOffType).gameObject.GetComponent<SpriteRenderer>().enabled = true;
         _agent.destination = lastSeen;
         _agent.speed = 30;
         _waitTime =  _timeRange.y;
