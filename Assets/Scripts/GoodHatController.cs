@@ -80,7 +80,7 @@ public class GoodHatController : MonoBehaviour
             _waitTime -= Time.deltaTime;
         }
     }
-    public void StopGoodHat(float stoppedTime = 5.0f)
+    public void StopGoodHat(float stoppedTime = 10.0f)
     {
         this.state = State.STOPPED;
         this._stoppedTimer = stoppedTime;
@@ -88,7 +88,9 @@ public class GoodHatController : MonoBehaviour
     private void StoppedUpdate()
     {
         _stoppedTimer -= Time.deltaTime;
-        if (_stoppedTimer < 0f) { this.SetWalking(); }
+        if (_stoppedTimer < 0f) {
+            this.transform.Find("ActionSprite").gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            this.SetWalking(); }
     }
     public void SetWalking()
     {
@@ -99,6 +101,7 @@ public class GoodHatController : MonoBehaviour
     {
         if (this.state == State.WALKING)
         {
+            this.transform.Find("ActionSprite").gameObject.GetComponent<SpriteRenderer>().enabled = true;
             List<GameObject> nearbyPolis = gameController.getNumberofClosestPolis(10, this.transform.position);
             Vector3 loc = (Random.insideUnitCircle.normalized * Random.Range(300.0f, 500.0f)).ToVector3xz() + this.transform.position;
             foreach (GameObject polis in nearbyPolis)
