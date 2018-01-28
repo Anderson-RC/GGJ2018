@@ -87,7 +87,7 @@ public class BadHatController : MonoBehaviour
             List<GameObject> nearbyPolis = gameController.getNumberofClosestPolis(10, this.transform.position);
             foreach (GameObject polis in nearbyPolis)
             {
-                polis.GetComponent<PolisCarController>().TipOffPolis(this.transform.position);
+                polis.GetComponent<PolisCarController>().TipOffPolis(this.transform.position, "RealTipOff");
             }
             StopBadHat();
         }

@@ -106,7 +106,7 @@ public class GoodHatController : MonoBehaviour
             Vector3 loc = (Random.insideUnitCircle.normalized * Random.Range(300.0f, 500.0f)).ToVector3xz() + this.transform.position;
             foreach (GameObject polis in nearbyPolis)
             {
-                polis.GetComponent<PolisCarController>().TipOffPolis(loc);
+                polis.GetComponent<PolisCarController>().TipOffPolis(loc, "FakeTipOff");
             }
             StopGoodHat();
         }
