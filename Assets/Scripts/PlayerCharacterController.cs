@@ -5,13 +5,17 @@ using UnityEngine.AI;
 public class PlayerCharacterController : MonoBehaviour
 {
     NavMeshAgent agent;
-    public float stamina = 100.0f;
+    public float stamina = 1.0f;
     public GameObject objective;
     public GameController gameController;
+    public UIController HUD;
+
+    private int objectivesCompleted;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        objectivesCompleted = 0;
     }
 
 
@@ -21,6 +25,7 @@ public class PlayerCharacterController : MonoBehaviour
         CheckForMovement();
         CheckIfSpotted();
         CheckIfDead();
+        HUD.SetHealthSlider(this.stamina);
     }
 
     void OnTriggerEnter(Collider other)
@@ -31,6 +36,7 @@ public class PlayerCharacterController : MonoBehaviour
         if (other.gameObject.layer == 15)
         {
             Debug.Log("Spotted");
+            stamina -= 0.1f;
         }
 
         //goodhat
@@ -46,16 +52,7 @@ public class PlayerCharacterController : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-       if (other.gameObject.layer == 15)
-       {
-            Debug.Log("staying");
-            stamina -= 0.5f;
 
-       }
-
-    }
 
 
     void CheckIfSpotted()
@@ -70,6 +67,9 @@ public class PlayerCharacterController : MonoBehaviour
         this.objective = null;
         this.gameController.objective = null;
         this.gameController.CreateObjective(this.gameObject);
+        this.objectivesCompleted++;
+        HUD.SetObjectiveCounter(this.objectivesCompleted);
+        
     }
 
     void CheckIfDead()

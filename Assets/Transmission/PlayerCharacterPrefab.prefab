@@ -167,9 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f784c95ea1f5b284288d413616a6ad12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamina: 100
+  stamina: 1
   objective: {fileID: 0}
   gameController: {fileID: 0}
+  HUD: {fileID: 0}
 --- !u!136 &136365125239810028
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -180,9 +181,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 3
+  m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0, y: 2.46, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195603193611884072
 NavMeshAgent:
   m_ObjectHideFlags: 1

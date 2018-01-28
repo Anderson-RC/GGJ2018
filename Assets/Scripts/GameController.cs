@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     public GameObject objectivePrefab;
     public GameObject goodHatPrefab;
     public GameObject badHatPrefab;
+    public UIController HUD;
 
     public bool playerExists = false;
     public GameObject objective;
@@ -131,6 +132,7 @@ public class GameController : MonoBehaviour {
         GameObject tile = building.parent.gameObject;
         Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
         GameObject player = (Instantiate(playerPrefab, closestRoad, Quaternion.identity));
+        player.GetComponent<PlayerCharacterController>().HUD = this.HUD;
         player.GetComponent<PlayerCharacterController>().gameController = this;
         this.charControl = player.GetComponent<PlayerCharacterController>();
         CreateObjective(player);
