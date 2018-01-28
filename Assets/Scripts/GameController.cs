@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
     public GameObject policeCarPrefab;
     public GameObject playerPrefab;
     public GameObject objectivePrefab;
+    public GameObject goodHatPrefab;
+
     public bool playerExists = false;
     public GameObject objective;
     public PlayerCharacterController charControl = null;
@@ -82,21 +84,44 @@ public class GameController : MonoBehaviour {
         GameObject tile = building.parent.gameObject;
         Vector3 closestRoad = ClosestRoadPointToLocationInTile(building.position, tile);
         // Check if closestRoad is reachable
-        NavMeshAgent agent = this.charControl.gameObject.GetComponent<NavMeshAgent>();
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(closestRoad, path);
-        if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        if (ValidPathExists(closestRoad))
         {
-            CreateObjective(this.charControl.gameObject);
-        }
-        else
-        {
-            //if so then create objective
             this.objective = (Instantiate(this.objectivePrefab, closestRoad, Quaternion.identity));
             this.charControl.objective = objective;
         }
+        else
+        {
+            CreateObjective(this.charControl.gameObject);
+        }
+
+        //NavMeshAgent agent = this.charControl.gameObject.GetComponent<NavMeshAgent>();
+        //NavMeshPath path = new NavMeshPath();
+        //agent.CalculatePath(closestRoad, path);
+        //if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        //{
+        //    CreateObjective(this.charControl.gameObject);
+        //}
+        //else
+        //{
+        //    //if so then create objective
+        //    this.objective = (Instantiate(this.objectivePrefab, closestRoad, Quaternion.identity));
+        //    this.charControl.objective = objective;
+        //}
      
     }
+
+    public bool ValidPathExists(Vector3 targetLocation)
+    {
+
+        NavMeshAgent agent = this.charControl.gameObject.GetComponent<NavMeshAgent>();
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(targetLocation, path);
+        if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+            return false;
+        else
+            return true;
+    }
+
     public void SpawnPlayerNearBuilding(Transform building)
     {
         //set player existence to true on spawn    
@@ -203,8 +228,11 @@ public class GameController : MonoBehaviour {
         //    }
         //}
 
-        //Spawn a car
-        this.activePolis.Add(Instantiate(policeCarPrefab, closestRoad, Quaternion.identity));   
+        //Spawn a car if path valid, otherwise try again
+       
+        this.activePolis.Add(Instantiate(policeCarPrefab, closestRoad, Quaternion.identity));
+        
+        
     }
 
     public List<GameObject> getNumberofClosestPolis(int numberOfPolis, Vector3 requestLocation)

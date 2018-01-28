@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mapIdType: 1
   _customStyle:
-    Name: Dark-copy
+    Name: danbo
     Id: mapbox://styles/rossgcu/cjcxvma381ie92sqtnw65vhyr
-    Modified: 2018-01-27T21:36:37.274Z
+    Modified: 2018-01-28T01:36:23.775Z
     UserName: rossgcu
   _mapId: mapbox://styles/rossgcu/cjcxvma381ie92sqtnw65vhyr
   _useCompression: 0
