@@ -32,6 +32,7 @@ public class PolisCarController : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         SetDestination();
+        this.SetPatrolling();
     }
 
     void Update()

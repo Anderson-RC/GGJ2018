@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4821024536317844}
+  - component: {fileID: 195970023426212490}
+  - component: {fileID: 114555673086054114}
   m_Layer: 0
   m_Name: hatbadPrefab
   m_TagString: Untagged
@@ -111,3 +113,41 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702883417462054}
   m_Mesh: {fileID: 4300000, guid: 8c425c5683aed5541951b60033f969d1, type: 3}
+--- !u!114 &114555673086054114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229598653816576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b4688c87cc29e4f95283061c9dce78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeRange: {x: 10, y: 20}
+  _distanceRange: {x: 5, y: 100}
+  viewCone: {fileID: 0}
+  targetEntity: {fileID: 0}
+  state: 0
+  distractionLength: 5
+--- !u!195 &195970023426212490
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229598653816576}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 15
+  m_ObstacleAvoidanceType: 4

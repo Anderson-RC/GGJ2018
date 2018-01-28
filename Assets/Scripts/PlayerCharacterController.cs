@@ -23,20 +23,21 @@ public class PlayerCharacterController : MonoBehaviour
         CheckIfDead();
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("Collisde");
-    //    if (other.gameObject.layer == 15)
-    //    {
-    //        Debug.Log("Spotted");
-    //    }
-    //}
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collisde");
+        if (other.gameObject.layer == 15)
+        {
+            Debug.Log("Spotted");
+        }
+    }
 
     void OnTriggerStay(Collider other)
     {
        if (other.gameObject.layer == 15)
        {
-            stamina -= 0.1f;
+            Debug.Log("staying");
+            stamina -= 0.5f;
 
        }
 

@@ -40,7 +40,10 @@ public class GoodHatController : MonoBehaviour
 
     void Update()
     {
-
+        if (this.state == State.WALKING) { WalkingUpdate(); }
+        if (this.state == State.CONVERTING) { WalkingUpdate(); }
+        if (this.state == State.DISTRACTING) { DistractingUpdate(); }
+        if (this.state == State.STOPPED) { StoppedUpdate(); }
 
     }
     private void WalkingUpdate()
