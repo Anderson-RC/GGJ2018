@@ -42,7 +42,7 @@ public class PlayerCharacterController : MonoBehaviour
         if (other.gameObject.layer == 19)
         {
             Debug.Log("attempting 999 call");
-            other.GetComponent<GoodHatController>().CallPolis(gameController);
+            other.GetComponent<BadHatController>().CallPolis(gameController);
         }
     }
 
