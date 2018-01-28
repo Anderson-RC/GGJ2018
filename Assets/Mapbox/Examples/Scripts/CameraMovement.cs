@@ -56,8 +56,8 @@ namespace Mapbox.Examples
 
 		void ZoomMapUsingTouchOrMouse(float zoomFactor)
 		{
-			var y = zoomFactor * _zoomSpeed;
-			transform.localPosition += transform.forward * y;
+			//var y = zoomFactor * _zoomSpeed;
+			//transform.localPosition += transform.forward * y;
 		}
 
 		void HandleMouseAndKeyBoard()
